@@ -1,0 +1,399 @@
+:root {
+  --text: #222222;
+  --muted: #5d646b;
+  --link: #0c5b8e;
+  --link-dark: #073d61;
+  --border: #d9dee3;
+  --bg: #ffffff;
+  --bg-soft: #f6f8fa;
+  --accent: #8c1515;
+  --max-width: 1040px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.58;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link-dark);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  padding: 8px 12px;
+  color: #ffffff;
+  background: #111111;
+  transform: translateY(-140%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header {
+  display: flex;
+  max-width: var(--max-width);
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 24px 24px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-title a {
+  color: var(--text);
+  font-size: 1.42rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 18px;
+  font-size: 0.96rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 38px;
+  padding: 7px 8px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+
+.nav-toggle span:not(.sr-only) {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--text);
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 38px 24px 60px;
+  overflow-x: hidden;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+  margin-bottom: 44px;
+}
+
+.profile-media {
+  padding: 10px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+}
+
+.profile-media img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+}
+
+.profile-copy h1,
+.page-title {
+  margin: 0 0 8px;
+  color: #111111;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.profile-copy,
+.content-section,
+.student-grid > section {
+  min-width: 0;
+}
+
+.position {
+  margin: 0 0 20px;
+  color: var(--accent);
+  font-size: 1.16rem;
+  font-weight: 700;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 20px;
+}
+
+.profile-links a {
+  display: inline-block;
+  padding: 7px 12px;
+  color: #ffffff;
+  background: var(--accent);
+  text-decoration: none;
+}
+
+.content-section {
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+}
+
+.content-section:first-child {
+  margin-top: 0;
+}
+
+.content-section h2 {
+  margin: 0 0 15px;
+  color: #111111;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.content-section h3 {
+  margin: 16px 0 8px;
+  color: #111111;
+  font-size: 1.08rem;
+}
+
+.content-section p {
+  margin: 0 0 14px;
+}
+
+.simple-list,
+.nested-list,
+.publication-list,
+.timeline-list,
+.columns-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.simple-list li,
+.nested-list li,
+.publication-list li,
+.timeline-list li,
+.columns-list li {
+  margin-bottom: 10px;
+}
+
+.nested-list > li {
+  margin-bottom: 14px;
+}
+
+.nested-list ul {
+  margin-top: 5px;
+}
+
+.publication-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.publication-list.numbered {
+  padding-left: 24px;
+  list-style: decimal;
+}
+
+.publication-list li {
+  margin-bottom: 14px;
+}
+
+.publication-list.numbered li {
+  padding-left: 4px;
+}
+
+.section-with-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.section-with-link h2 {
+  margin-bottom: 15px;
+}
+
+.section-with-link a {
+  white-space: nowrap;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.timeline-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.timeline-list li {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.timeline-list.compact li {
+  margin-bottom: 10px;
+}
+
+.timeline-list span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.student-grid h3 {
+  margin-top: 0;
+}
+
+.columns-list {
+  column-count: 2;
+  column-gap: 42px;
+}
+
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 22px 24px 36px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    align-items: flex-start;
+    padding: 18px 18px 14px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    padding-top: 14px;
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .site-nav.is-open {
+    display: grid;
+    gap: 10px;
+  }
+
+  .profile,
+  .student-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile {
+    gap: 24px;
+  }
+
+  .profile-media {
+    max-width: 360px;
+  }
+
+  .section-with-link {
+    display: block;
+  }
+
+  .timeline-list li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .columns-list {
+    column-count: 1;
+  }
+}
+
+@media (max-width: 460px) {
+  .page {
+    padding: 28px 18px 46px;
+  }
+
+  .profile-copy h1,
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .site-title a {
+    font-size: 1.24rem;
+  }
+}
